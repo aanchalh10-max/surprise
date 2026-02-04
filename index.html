@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Subbu ❤️</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #ffe6eb;
+    text-align: center;
+    margin: 0;
+    overflow: hidden;
+}
+
+.page {
+    display: none;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.active {
+    display: flex;
+}
+
+h1 {
+    color: #ff3366;
+    margin: 10px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin: 15px;
+}
+
+#startBtn {
+    background-color: #ff3366;
+    color: white;
+}
+
+#yesBtn, #noBtn {
+    position: absolute;
+}
+
+#yesBtn {
+    background-color: #ff3366;
+    color: white;
+}
+
+#noBtn {
+    background-color: #666;
+    color: white;
+}
+
+#successMessage {
+    display: none;
+    font-size: 30px;
+    color: #ff3366;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div id="page1" class="page active">
+    <h1>Hye Subbu babay ❤️</h1>
+    <h1>This is a little surprise for you</h1>
+    <button id="startBtn">Let's see it 💌</button>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2" class="page">
+    <h1>Thankyou for always being the cutest person in my life 🥺❤️</h1>
+    <h1>Will you be my Valentine?</h1>
+
+    <button id="yesBtn">Yes 😍</button>
+    <button id="noBtn">No 😢</button>
+
+    <div id="successMessage">Yayyyyy!! I love you ❤️😘</div>
+</div>
+
+<script>
+const page1 = document.getElementById("page1");
+const page2 = document.getElementById("page2");
+
+document.getElementById("startBtn").onclick = () => {
+    page1.classList.remove("active");
+    page2.classList.add("active");
+};
+
+// Move buttons funny on click
+function moveButton(button) {
+    const x = Math.random() * (window.innerWidth - 150);
+    const y = Math.random() * (window.innerHeight - 150);
+    button.style.left = x + "px";
+    button.style.top = y + "px";
+}
+
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+
+yesBtn.onclick = () => moveButton(yesBtn);
+noBtn.onclick = () => moveButton(noBtn);
+
+// Double click yes shows message (so he eventually wins 😂)
+yesBtn.ondblclick = () => {
+    document.getElementById("successMessage").style.display = "block";
+};
+</script>
+
+</body>
+</html>
